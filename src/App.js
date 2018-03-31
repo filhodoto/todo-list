@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import { uniqueId } from 'lodash';
 
-import { Todo } from './Todo';
+import Todo from './components/todo/TodoComponent.js';
+import TodoInput from './components/todo-input/TodoInputComponent.js';
 
-export class App extends Component {
+export class App extends React.Component {
 
   state = {
     todo: '',
@@ -50,12 +51,8 @@ export class App extends Component {
               : 'You\'re all done 🌴'
           }
         </div>
-        <div className="todo-input">
-          <input onChange={this.handleChange} placeholder="..." type="text" value={todo}/>
-          <button onClick={this.handleClickAdd}>Add</button>
-        </div>
+        <TodoInput handleChange={this.handleChange} handleClickAdd={this.handleClickAdd} todo={todo}/>
       </div>
     )
   }
-
 }
