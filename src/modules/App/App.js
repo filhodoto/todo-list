@@ -1,3 +1,5 @@
+// @flow
+
 import * as React from 'react';
 import { uniqueId } from 'lodash';
 
@@ -8,7 +10,7 @@ import Counter from './components/counter/CounterComponent.js';
 export default class App extends React.Component {
 
   state = {
-    todo: '',
+    todo:string: '',
     todos: [ { text: 'Add your first todo' , id: uniqueId()} ]
   };
 
