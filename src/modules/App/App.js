@@ -5,7 +5,7 @@ import TodoList from './components/todo-list/TodoListComponent.js';
 import TodoInput from './components/todo-input/TodoInputComponent.js';
 import Counter from './components/counter/CounterComponent.js';
 
-export class App extends React.Component {
+export default class App extends React.Component {
 
   state = {
     todo: '',
@@ -16,7 +16,6 @@ export class App extends React.Component {
 
   handleClickAdd = () => {
     const { todo, todos } = this.state;
-
     todo && this.setState({ todos: [ ...todos, { text: todo, id: uniqueId()} ] });
   };
 
