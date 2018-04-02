@@ -1,7 +1,15 @@
+// @flow
+
 import './todo-styles.css';
 import * as React from 'react';
 
-export default class Todo extends React.Component {
+type PropsInterface = {
+  text: string,
+  onClickDelete: () => void
+};
+
+export default class Todo extends React.Component<PropsInterface, {}> {
+
   render () {
     return (
       <div className="todo-item">

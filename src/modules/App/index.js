@@ -1,3 +1,4 @@
+// @flow
 import './styles.css';
 
 import * as React from 'react';
@@ -10,4 +11,6 @@ rootDiv.id = 'root';
 
 document.body.appendChild(rootDiv);
 
-render(<App />, document.querySelector('#root'));
+const rootEl:HTMLElement = document.getElementById("#root");
+
+render(<App />, rootEl);

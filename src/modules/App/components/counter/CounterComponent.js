@@ -1,5 +1,13 @@
+// @flow
+
 import * as React from 'react';
 
-export default class Counter extends React.Component {
-  render () { return <p><span id="counter">{this.props.todosLength}</span> remaining</p> }
+type PropsInterface = {
+    todosLength: number
+};
+
+export default class Counter extends React.Component<PropsInterface, {}> {
+  render () {
+      return <p><span id="counter">{this.props.todosLength}</span> remaining</p>
+  }
 }

@@ -7,21 +7,27 @@ import TodoList from './components/todo-list/TodoListComponent.js';
 import TodoInput from './components/todo-input/TodoInputComponent.js';
 import Counter from './components/counter/CounterComponent.js';
 
-export default class App extends React.Component {
 
-  state = {
-    todo:string: '',
+type StateInterface = {
+    todo: string,
+    todos: Array<{text: string, id: number}>
+};
+
+export default class App extends React.Component<{}, StateInterface> {
+
+  state: StateInterface = {
+    todo: '',
     todos: [ { text: 'Add your first todo' , id: uniqueId()} ]
   };
 
-  handleChange = event => this.setState({ todo: event.target.value });
+  handleChange = (event:SyntheticEvent<HTMLButtonElement>): void => this.setState({ todo: event.currentTarget.value });
 
-  handleClickAdd = () => {
+  handleClickAdd = (): void => {
     const { todo, todos } = this.state;
     todo && this.setState({ todos: [ ...todos, { text: todo, id: uniqueId()} ] });
   };
 
-  handleClickDelete = index => {
+  handleClickDelete = (index:number): void => {
     console.log(`Deleting todo number ${index}`);
     const { todos } = this.state;
     this.setState({ todos: [

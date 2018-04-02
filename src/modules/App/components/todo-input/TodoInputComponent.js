@@ -1,7 +1,14 @@
+// @flow
 import './todo-input-styles.css';
 import * as React from 'react';
 
-export default class TodoInput extends React.Component {
+type PropsInterface = {
+    todo: string,
+    handleChange: any,
+    handleClickAdd: any
+};
+
+export default class TodoInput extends React.Component<PropsInterface, {}> {
 
     render() {
         return (

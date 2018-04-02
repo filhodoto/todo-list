@@ -1,11 +1,18 @@
+// @flow
+
 import './todo-list-styles.css';
 import * as React from 'react';
 
 import Todo from './../todo/TodoComponent.js';
 
-export default class TodoList extends React.Component {
+type PropsInterface = {
+    todos: Array<{text: string, id: number}>,
+    handleClickDelete: (number) => void
+};
 
-    onClickDelete = index => this.props.handleClickDelete(index);
+export default class TodoList extends React.Component<PropsInterface,{}> {
+
+    onClickDelete = (index:number) => this.props.handleClickDelete(index);
 
     render() {
         return (
