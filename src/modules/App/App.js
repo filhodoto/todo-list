@@ -16,11 +16,12 @@ export default class App extends React.Component {
 
   handleClickAdd = () => {
     const { todo, todos } = this.state;
-    todo && this.setState({ todos: [ ...todos, { text: todo, id: uniqueId()} ] });
+    todo && this.setState({
+      todos: [ ...todos, { text: todo, id: uniqueId()} ]
+    });
   };
 
   handleClickDelete = index => {
-    console.log(`Deleting todo number ${index}`);
     const { todos } = this.state;
     this.setState({ todos: [
       ...todos.slice(0, index),
@@ -36,7 +37,9 @@ export default class App extends React.Component {
         <h1>todos</h1>
         <Counter todosLength={todos.length} />
         <TodoList todos={todos} handleClickDelete={this.handleClickDelete}/>
-        <TodoInput handleChange={this.handleChange} handleClickAdd={this.handleClickAdd} todo={todo}/>
+        <TodoInput handleChange={this.handleChange}
+                   handleClickAdd={this.handleClickAdd}
+                   todo={todo}/>
       </div>
     )
   }
