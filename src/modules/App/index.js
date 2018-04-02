@@ -11,6 +11,6 @@ rootDiv.id = 'root';
 
 document.body.appendChild(rootDiv);
 
-const rootEl:HTMLElement = document.getElementById("#root");
+const rootEl:HTMLElement = document.getElementById("root");
 
 render(<App />, rootEl);
