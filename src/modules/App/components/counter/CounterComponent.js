@@ -8,6 +8,6 @@ type PropsInterface = {
 
 export default class Counter extends React.Component<PropsInterface, {}> {
   render () {
-      return <p><span id="counter">{this.props.todosLength}</span> remaining</p>
+    return <p><span id="counter">{this.props.todosLength}</span> remaining</p>
   }
 }
