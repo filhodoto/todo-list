@@ -3,6 +3,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
+/**
+ * Setup component types
+ */
 type StatePropsInterface = {
     todosLength: number
 };
@@ -13,10 +16,16 @@ class Counter extends React.Component<StatePropsInterface, {}> {
   }
 }
 
+/**
+ * Get necessary store data
+ */
 const mapStateToProps = state => ({
   todosLength: state.todos.length
 });
 
+/**
+ * Export class with store data connected
+ */
 export default connect(
   mapStateToProps
 )(Counter);

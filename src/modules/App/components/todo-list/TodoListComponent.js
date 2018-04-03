@@ -1,5 +1,4 @@
 // @flow
-
 import './todo-list-styles.css';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -7,6 +6,9 @@ import { deleteTodoAction } from '../../actions/todosActions'
 
 import Todo from './../todo/TodoComponent.js';
 
+/**
+ * Setup component types
+ */
 type StatePropsInterface = {
   todos: Array < {text: string, id: number} >
 };
@@ -38,6 +40,9 @@ class TodoList extends React.Component<CombinedProps,{}> {
   }
 }
 
+/**
+ * Get necessary store data
+ */
 const mapStateToProps = state => ({
   todos: state.todos
 });
@@ -46,6 +51,9 @@ const mapDispatchToProps = dispatch => ({
   deleteTodo: index => dispatch(deleteTodoAction(index))
 });
 
+/**
+ * Export class with store data connected
+ */
 export default connect(
   mapStateToProps,
   mapDispatchToProps

@@ -5,6 +5,9 @@ import { uniqueId } from 'lodash';
 import { connect } from 'react-redux';
 import { addTodoAction, updateTodoAction } from '../../actions/todosActions'
 
+/**
+ * Setup component types
+ */
 type StatePropsInterface = {
   todo: string
 };
@@ -18,14 +21,19 @@ type CombinedProps = StatePropsInterface & DispatchPropsInterface;
 
 class TodoInput extends React.Component<CombinedProps, {}> {
 
+  /**
+   * Update when input is changed
+   */
   handleChange = (event:SyntheticEvent<HTMLButtonElement>): void => {
 	this.props.updateTodo(event.currentTarget.value);
   };
 
+  /**
+   * Handle Add btn click
+   */
   handleClickAdd = (): void => {
 	this.props.addTodo(this.props.todo, uniqueId())
   };
-
 
   render() {
 	return (
@@ -39,6 +47,9 @@ class TodoInput extends React.Component<CombinedProps, {}> {
   }
 }
 
+/**
+ * Get necessary store data
+ */
 const mapStateToProps = state => ({
   todo: state.todo
 });
@@ -48,6 +59,9 @@ const mapDispatchToProps = dispatch => ({
   updateTodo: (text) => dispatch(updateTodoAction(text))
 });
 
+/**
+ * Export class with store data connected
+ */
 export default connect(
   mapStateToProps,
   mapDispatchToProps
