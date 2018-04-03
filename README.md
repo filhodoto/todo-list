@@ -66,6 +66,12 @@ export const Component = props => (
 Component.displayName = 'App';
 ```
 
+### Tasks
+- Be more thorough with the flow typings
+- Add testing with jest
+- Create a file for types so we can import them instead of rewriting them
+- Review if structure is correct
+
 ### Contributing
 
 Open a PR into the [master branch](https://github.com/lodgify/todo-list/tree/master).
