@@ -25,7 +25,7 @@ const store = createStore(
   todosReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-console.log(store);
+
 /**
  * Render the application in the root element (#root)
  */

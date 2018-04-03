@@ -2,9 +2,9 @@
  * Add Todo
  */
 export const ADD_TODO = 'ADD_TODO';
-export const addTodoAction = (todo:string) => ({
+export const addTodoAction = (text:string, id:number) => ({
   type: 'ADD_TODO',
-  payload: todo
+  payload: {text, id}
 });
 
 /**
@@ -15,11 +15,12 @@ export const deleteTodoAction = (index:number) => ({
   type: 'DELETE_TODO',
   payload: index
 });
-//
-// /**
-//  * Change Todo State
-//  */
-// export const DELETE_TODO = (index:number) => ({
-//   type: 'DELETE_TODO',
-//   payload: index
-// });
+
+/**
+ * Update Todo State
+ */
+export const UPDATE_TODO = 'UPDATE_TODO';
+export const updateTodoAction = (text:string) => ({
+  type: 'UPDATE_TODO',
+  payload: text
+});

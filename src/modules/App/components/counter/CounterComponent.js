@@ -8,10 +8,6 @@ type StatePropsInterface = {
 };
 
 class Counter extends React.Component<StatePropsInterface, {}> {
-  constructor(props) {
-    super(props)
-	console.log(props);
-  }
   render () {
     return <p><span id="counter">{this.props.todosLength}</span> remaining</p>
   }

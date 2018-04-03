@@ -4,6 +4,7 @@ import { uniqueId } from 'lodash';
 import {
   ADD_TODO,
   DELETE_TODO,
+  UPDATE_TODO
 } from "../actions/todosActions";
 
 
@@ -28,17 +29,18 @@ const todosReducer = (
   state: todosReducerStateInterface = initialState,
   action: any
 ) : any => {
+
   switch (action.type) {
 	case ADD_TODO:
 	  return {
-		...state,
+	    ...state,
 	    todos: [
 	      ...state.todos, {
-		  	text: action.payload,
-			id: 1 //TODO Make this unique value
+		  	text: action.payload.text,
+			id: action.payload.id //TODO Make this unique value
 		  }
 		]
-	  }
+	  };
 	case DELETE_TODO:
 	  return {
 		...state,
@@ -46,7 +48,15 @@ const todosReducer = (
 		  ...state.todos.slice(0, action.payload),
 		  ...state.todos.slice(action.payload + 1)
 		]
-	  }
+	  };
+	case UPDATE_TODO:
+	  return {
+		...state,
+		todo: action.payload
+	  };
+	default:
+	  return state;
+
   }
 }
 
