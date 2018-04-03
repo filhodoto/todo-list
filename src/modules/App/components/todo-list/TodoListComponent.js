@@ -2,17 +2,24 @@
 
 import './todo-list-styles.css';
 import * as React from 'react';
+import { connect } from 'react-redux';
+import { deleteTodoAction } from '../../actions/todosActions'
 
 import Todo from './../todo/TodoComponent.js';
 
-type PropsInterface = {
-  todos: Array < {text: string, id: number} >,
-  handleClickDelete: (number) => void
+type StatePropsInterface = {
+  todos: Array < {text: string, id: number} >
 };
 
-export default class TodoList extends React.Component<PropsInterface,{}> {
+type DispatchPropsInterface = {
+  deleteTodo: (number) => void
+};
 
-  onClickDelete = (index: number) => this.props.handleClickDelete(index);
+type CombinedProps = StatePropsInterface & DispatchPropsInterface;
+
+class TodoList extends React.Component<CombinedProps,{}> {
+
+  onClickDelete = (index: number) => this.props.deleteTodo(index);
 
   render() {
 	return (
@@ -30,3 +37,16 @@ export default class TodoList extends React.Component<PropsInterface,{}> {
 	)
   }
 }
+
+const mapStateToProps = state => ({
+  todos: state.todos
+});
+
+const mapDispatchToProps = dispatch => ({
+  deleteTodo: index => dispatch(deleteTodoAction(index))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoList);

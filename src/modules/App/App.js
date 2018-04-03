@@ -8,48 +8,54 @@ import TodoInput from './components/todo-input/TodoInputComponent.js';
 import Counter from './components/counter/CounterComponent.js';
 
 
-type StateInterface = {
-    todo: string,
-    todos: Array<{text: string, id: number}>
-};
+export default class App extends React.Component<{}, {}> {
 
-export default class App extends React.Component<{}, StateInterface> {
+  // state: StateInterface = {
+  //   todo: '',
+  //   todos: [ { text: 'Add your first todo' , id: uniqueId()} ]
+  // };
 
-  state: StateInterface = {
-    todo: '',
-    todos: [ { text: 'Add your first todo' , id: uniqueId()} ]
-  };
+  // handleChange = (event:SyntheticEvent<HTMLButtonElement>): void => {
+  //     this.setState({ todo: event.currentTarget.value });
+  // }
 
-  handleChange = (event:SyntheticEvent<HTMLButtonElement>): void => {
-      this.setState({ todo: event.currentTarget.value });
+  // handleClickAdd = (): void => {
+  //   const { todo, todos } = this.state;
+  //   todo && this.setState({
+  //       todos: [ ...todos, { text: todo, id: uniqueId()} ]
+  //   });
+  // };
+
+  // handleClickDelete = (index:number): void => {
+  //   const { todos } = this.state;
+  //   this.setState({ todos: [
+  //     ...todos.slice(0, index),
+  //     ...todos.slice(index + 1)
+  //   ]});
+  // };
+  /**
+   *
+   */
+  constructor (props: any)
+  {
+	super(props);
   }
 
-  handleClickAdd = (): void => {
-    const { todo, todos } = this.state;
-    todo && this.setState({
-        todos: [ ...todos, { text: todo, id: uniqueId()} ]
-    });
-  };
-
-  handleClickDelete = (index:number): void => {
-    const { todos } = this.state;
-    this.setState({ todos: [
-      ...todos.slice(0, index),
-      ...todos.slice(index + 1)
-    ]});
-  };
 
   render() {
 
-    const { todo, todos } = this.state;
+    // const { todo, todos } = this.state;
     return (
       <div className="todo-list">
         <h1>todos</h1>
-        <Counter todosLength={todos.length} />
-        <TodoList todos={todos} handleClickDelete={this.handleClickDelete}/>
-        <TodoInput handleChange={this.handleChange}
-                   handleClickAdd={this.handleClickAdd}
-                   todo={todo}/>
+        <Counter />
+{/*
+        <TodoList todos={todos}
+                  handleClickDelete={this.handleClickDelete}/>
+        <TodoInput
+          handleClickAdd={this.handleClickAdd}
+          todo={todo}/>
+*/}
       </div>
     )
   }
